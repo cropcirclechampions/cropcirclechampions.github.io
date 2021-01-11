@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<head>
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-JS0FCH102N"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		gtag('js', new Date());
+
+		gtag('config', 'G-JS0FCH102N');
+	</script>
+
+	<title>Crop Circle Champions</title>
+
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-extensions@4.0.0/dist/css/bulma-extensions.min.css">
+	<link rel="stylesheet" type="text/css" href="css/styles.css">
+
+	<link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap" rel="stylesheet">
+
+	<link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon.png">
+	<link rel="manifest" href="/site.webmanifest">
+	<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+	<meta name="msapplication-TileColor" content="#da532c">
+	<meta name="theme-color" content="#ffffff">
+
+</head>
+
+<body>
+	<div id="ks-container">
+
+		<div id="ks-background">
+			<p id="cropCircleChampionsKickstarterLink" class="has-text-centered title is-4"><a href="https://www.kickstarter.com/projects/cropcirclechampions" target="_blank">Back Crop Circle Champions on Kickstarter today!</a></p>
+		</div>
+
+		<img id="kickstartImg" src="img/kickstarter.jpg" alt="Just launched on Kickstarter" />
+	</div>
+
+	<div id="container">
+
+		<p id="mainCropCircleChampionsTitle" class="title">
+			<img src="img/title.jpg" alt="Main Crop Circle Champions Title" />
+		</p>
+
+		<div id="setupLayer" class="layer">
+
+			<p class="subtitle is-5">Crop Circle Champions is a tile-laying game<br />by Cody Thompson</p>
+
+			<div id="homepageButtonContainer" class="buttons">
+				<button id="setupLayerInstructionsButton" class="button is-info instructionsButton" title="Instructions Button">Instructions</button>
+				<button id="startGame" class="button is-success startCommenceButton" title="Start Game Button" disabled>Start Game</button>
+			</div>
+
+			<div id="startingTileContainer">
+				<p class="has-text-centered">Choose a starting tile for your crop circle.<br /><span class="is-italic">The rest will be removed from the game.</span></p>
+				<ul id="startingTiles"></ul>
+			</div>
+
+		</div>
+
+		<div id="gameLayer" class="layer">
+
+			<button id="gameLayerInstructionsButton" class="button is-info instructionsButton" title="Instructions Button">Instructions</button>
+
+			<ul id="tileCountContainer">
+				<li data-tile-count-type="blue" data-tile-count="0" class="tileCountTypeContainer">
+					<img data-tile-type="blue" class="tileCountType" src="img/tiles/blue00.png">
+					<p class="tileCount"><span class="tileCountNum">0</span></p>
+				</li>
+				<li data-tile-count-type="lunar" data-tile-count="0" class="tileCountTypeContainer">
+					<img data-tile-type="lunar" class="tileCountType" src="img/tiles/lunar00.png">
+					<p class="tileCount"><span class="tileCountNum">0</span></p>
+				</li>
+				<li data-tile-count-type="solar" data-tile-count="0" class="tileCountTypeContainer">
+					<img data-tile-type="solar" class="tileCountType" src="img/tiles/solar00.png">
+					<p class="tileCount"><span class="tileCountNum">0</span></p>
+				</li>
+				<li data-tile-count-type="tentacle" data-tile-count="0" class="tileCountTypeContainer">
+					<img data-tile-type="tentacle" class="tileCountType" src="img/tiles/tentacle00.png">
+					<p class="tileCount"><span class="tileCountNum">0</span></p>
+				</li>
+				<li data-tile-count-type="yellow" data-tile-count="0" class="tileCountTypeContainer">
+					<img data-tile-type="yellow" class="tileCountType" src="img/tiles/yellow00.png">
+					<p class="tileCount"><span class="tileCountNum">0</span></p>
+				</li>
+			</ul>
+			<div id="playerTileContainer">
+
+				<p class="subtitle is-4 has-text-centered has-text-weight-semibold">Available Tiles</p>
+				<p class="subtitle is-6 has-text-centered">Pick a pair to place.</p>
+
+				<button id="cancelTilePairSelection" class="button is-danger button-is-centered" disabled>Cancel Selection</button>
+
+				<div id="tilePairContainer"></div>
+
+			</div>
+
+			<div id="mapContainer"></div>
+
+			<div class="clearDiv"></div>
+
+		</div>
+
+	</div>
+
+	<div id="keyboardKeysModal" class="modal notificationModal">
+
+		<div class="modal-background closableModalBackground"></div>
+		<div class="modal-content">
+			<div class="notification">
+				<p>If you're playing on a computer, you can use following keyboard keys to interact with the map while playing:</p>
+				<p class="has-text-centered title is-6">Navigating Around Map:</p>
+				<img id="keyboardMoveKeysImg" class="keyboardImg" src="img/keyboard-keys-move.png" alt="Move map keyboard keys image" />
+				<p class="has-text-centered title is-6">Rotating Placed Tile:</p>
+				<img id="keyboardRotateKeysImg" class="keyboardImg" src="img/keyboard-keys-rotate.png" alt="Rotate placed tile keyboard keys image" />
+				<button id="commenceGame" class="button is-success button-is-centered closeModalTrigger" title="Start game button">Start Game</button>
+			</div>
+		</div>
+	</div>
+
+	<div id="instructionsModal" class="modal">
+		<div class="modal-background"></div>
+		<div class="modal-card">
+			<header class="modal-card-head">
+				<p class="modal-card-title">Instructions</p>
+				<button class="delete closeModalTrigger" aria-label="close"></button>
+			</header>
+			<section class="modal-card-body">
+				<p>Instructions to go here</p>
+			</section>
+			<footer class="modal-card-foot">
+				<button class="button is-danger closeModalTrigger">Close</button>
+			</footer>
+		</div>
+	</div>
+
+	<script type="module" src="https://unpkg.com/ionicons@5.0.0/dist/ionicons/ionicons.esm.js"></script>
+	<script nomodule="" src="https://unpkg.com/ionicons@5.0.0/dist/ionicons/ionicons.js"></script>
+
+	<script defer src="https://cdn.jsdelivr.net/npm/bulma-extensions@4.0.0/dist/js/bulma-extensions.min.js"></script>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+	<script type="text/javascript" src="js/data.js"></script>
+	<script type="text/javascript" src="js/scripts.js"></script>
+	<script type="text/javascript" src="js/image-preloader.js"></script>
+
+</body>
+
+</html>
