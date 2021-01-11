@@ -329,14 +329,6 @@ ion-icon[name="help-circle-outline"] {
     height: 95px;
 }
 
-/* .availableTile {
-    position: absolute;
-    height: 89px;
-    width: 100px;
-    max-width:100%;
-    max-height:100%;
-} */
-
 .availableTile,
 .cropCircleTile,
 .temporaryTile {
