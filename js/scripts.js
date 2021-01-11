@@ -1061,8 +1061,10 @@ function cancelBothTilePlacements() {
 
 	rotateTileAllowed = false;
 
-	// since the tile has already been moved from the display area onto the map - we now need to move the tile back FROM the map hex it's previously been moved to TO the same place in the display area it was taken from
-	$('.mapTileContainer .availableTile.lockedIn').parentToAnimate($('.playerTilePair.activePair.chosenPair .availableTileContainer.chosenCropCircle'), 1000);
+	if($('.mapTileContainer .availableTile.lockedIn').length) {
+		// since the tile has already been moved from the display area onto the map - we now need to move the tile back FROM the map hex it's previously been moved to TO the same place in the display area it was taken from
+		$('.mapTileContainer .availableTile.lockedIn').parentToAnimate($('.playerTilePair.activePair.chosenPair .availableTileContainer.chosenCropCircle'), 1000);
+	}
 
 	$('.mapTileContainer.lastPlacedTile .cropCircleTile').addClass('availableTile').removeClass('cropCircleTile');
 
@@ -1079,7 +1081,7 @@ function cancelBothTilePlacements() {
 		$('.activePair').addClass('inactivePair').removeClass('activePair');
 
 		// the yellow border around the chosen hex is faded out since there is now no currently selected hex
-		$('.selectedCropCircleOutline').fadeOut();
+		$('.selectedTileOutline').fadeOut();
 
 		// the opaque yellow hexes are faded out since there is no chosen tiles again
 		$('.validPlacement').fadeOut();
@@ -1089,7 +1091,7 @@ function cancelBothTilePlacements() {
 
 		setTimeout(function(){
 			// the yellow border around the chosen hex is now removed since enough time has elapsed for it to fade out
-			$('.selectedCropCircleOutline').remove();
+			$('.selectedTileOutline').remove();
 			// the opaque yellow hexes are faded out are now removed since enough time has elapsed for it to fade out
 			$('.validPlacement').remove();
 		}, 400)
@@ -1097,8 +1099,8 @@ function cancelBothTilePlacements() {
 	setTimeout(function(){
 		$('.lockedIn').removeClass('lockedIn');
 		$('.placedTile.lastPlacedTile').removeClass('placedTile');
-		$('.lastPlacedTile').removeClass('lastPlacedTile');
-
+		$('.lastPlacedTile').removeClass('lastPlacedTile');	
+		$('.potentialPlacement').removeClass('potentialPlacement');
 	}, 1100)
 
     // removing the "showOptions" class causes the option bar to retract until the next tile is placed
